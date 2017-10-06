@@ -30,7 +30,7 @@
   :profile/send-transaction
   [trim-v]
   (fn [{:keys [db]} [chat-id contact-id]]
-    {:dispatch-n [[:navigate-to :chat chat-id]
+    {:dispatch-n [[:navigate-to-chat chat-id]
                   [:select-chat-input-command {:name "send"}]
                   [:set-contact-as-command-argument {:arg-index 0
                                                      :bot-db-key "recipient"
@@ -47,7 +47,7 @@
   ;; Switch user to the console issuing the !phone command automatically to let him change his phone number.
   ;; We allow to change phone number only from console because this requires entering SMS verification code.
   (fn [_ _]
-    {:dispatch-n [[:navigate-to :chat console-chat-id]
+    {:dispatch-n [[:navigate-to-chat console-chat-id]
                   [:select-chat-input-command {:name "phone"}]]}))
 
 (defn get-current-account [{:keys [:accounts/current-account-id] :as db}]

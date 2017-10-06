@@ -73,8 +73,8 @@
 (defn chat-with-command
   [_ [_ whisper-identity command-key params]]
   (dispatch [:remove-contacts-click-handler])
-  (dispatch [:add-chat-loaded-callback whisper-identity
-             #(dispatch [::send-command command-key params])])
+  (dispatch [:add-chat-loaded-event whisper-identity
+             [::send-command command-key params]])
   (dispatch [:start-chat whisper-identity]))
 
 (register-handler :chat-with-command

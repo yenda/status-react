@@ -345,7 +345,7 @@
     (when-not (get-in db [:contacts/contacts whisper-identity])
       (let [contact (assoc contact :address (public-key->address whisper-identity))]
         {:dispatch-n [[::add-new-contact contact]
-                      [:start-chat whisper-identity {} :navigation-replace]]}))))
+                      [:start-chat whisper-identity {:navigation-replace? true}]]}))))
 
 (register-handler-fx
   :add-pending-contact
@@ -442,7 +442,7 @@
   (fn [_ [_ {:keys [whisper-identity dapp?] :as contact}]]
     {:dispatch-n (concat
                   [[:navigate-to-clean :chat-list]
-                   [:start-chat whisper-identity {}]]
+                   [:start-chat whisper-identity]]
                   (when-not dapp?
                     [[::send-contact-request contact]]))}))
 

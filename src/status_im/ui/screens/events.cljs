@@ -275,7 +275,7 @@
                          [[:init-console-chat]
                           [:load-commands!]]
                          (when open-console?
-                           [[:navigate-to :chat console-chat-id]]))})))))
+                           [[:navigate-to-chat console-chat-id]]))})))))
 
 (register-handler-fx
   :initialize-crypt

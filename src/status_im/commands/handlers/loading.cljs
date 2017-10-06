@@ -215,7 +215,7 @@
    (after #(dispatch [:update-suggestions]))
    (after (fn [_ [id]]
             (dispatch [:invoke-commands-loading-callbacks id])
-            (dispatch [:invoke-chat-loaded-callbacks id])))
+            (dispatch [:invoke-chat-loaded-event id])))
    (after (fn [{:contacts/keys [contacts]} [id]]
             (let [subscriptions (get-in contacts [id :subscriptions])]
               (doseq [[name opts] subscriptions]
