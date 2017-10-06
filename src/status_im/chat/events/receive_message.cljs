@@ -71,8 +71,8 @@
                                                                    (:new? enriched-message))
                                      (unviewed-messages-model/add-unviewed-message chat-identifier message-id)
                                      (assoc-in [:chats chat-identifier :last-message] message)))
-                    :dispatch-n   [[:request-command-message-data enriched-message :short-preview]]
-                    :save-message (dissoc enriched-message :new?))
+                    (assoc :dispatch-n [[:request-command-message-data enriched-message :short-preview]]
+                           :save-message (dissoc enriched-message :new?)))
 
           (get-in enriched-message [:content :command])
           (update :dispatch-n conj [:request-command-preview enriched-message])
