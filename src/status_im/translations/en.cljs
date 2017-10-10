@@ -374,6 +374,7 @@
    :send-request                          "Send request"
    :share                                 "Share"
    :currency                              "Currency"
+   :transaction-fee                       "Transaction Fee"
    :transactions                          "Transactions"
    :transaction-details                   "Transaction details"
    :transactions-sign                     "Sign"

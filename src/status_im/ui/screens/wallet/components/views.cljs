@@ -114,6 +114,18 @@
          (money/wei->str :eth balance)
          "...")]]]))
 
+(views/defview fee []
+  (views/letsubs [balance [:balance]]
+    [react/view
+     [react/text {:style styles/label} (i18n/label :t/transaction-fee)]
+     [react/view styles/wallet-container
+      [react/text {:style           styles/wallet-name
+                   :number-of-lines 1
+                   :ellipsizeMode   :middle}
+       "~0.00000003 ETH"]
+      [react/text {:style styles/wallet-value}
+       "2100 * 21 Gwei"]]]))
+
 (defn network-label
   ([n] (network-label [{} n]))
   ([style n] [react/view (merge styles/network-container

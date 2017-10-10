@@ -134,7 +134,9 @@
                              :on-change-text #(let [value (string/trim %)]
                                                 (re-frame/dispatch [:wallet/set-and-validate-amount value]))}}]
            [react/view wallet.styles/choose-currency-container
-            [components/choose-currency wallet.styles/choose-currency]]]]]
+            [components/choose-currency wallet.styles/choose-currency]]]
+          [react/view wallet.styles/fee-container
+           [components/fee (money/wei->str :eth (money/fee-value 21000 gas-price))]]]]
         [components/separator]
         (if signing?
           [signing-buttons

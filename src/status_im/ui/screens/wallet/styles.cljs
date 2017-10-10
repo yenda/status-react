@@ -65,6 +65,10 @@
    :margin-horizontal 15
    :flex-direction    :row})
 
+(def fee-container
+  {:margin-top        16
+   :margin-horizontal 15})
+
 (def choose-currency-container
   {:margin-left 8})
 
